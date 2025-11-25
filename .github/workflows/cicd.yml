@@ -20,3 +20,5 @@ jobs:
         run: ls
       - name: step2
         run: echo "This is step 2"
+      - name: call reusable workflow
+        uses: ./.github/workflows/reusable_workflow.yml
