@@ -5,5 +5,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -name: step1 of reusable workflow
+      - name: step1 of reusable workflow
         run: echo "This is step 1 from reusable workflow"
