@@ -1,0 +1,7 @@
+name: "Test Django Application"
+description: "Action to test Django application running in Docker container"
+runs:
+  using: "composite"
+  steps:
+    - name: Test health endpoint
+      run: curl -f http://localhost:8000/health/ || exit 1
