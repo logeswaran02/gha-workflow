@@ -39,6 +39,8 @@ jobs:
 
       - name: Test Django application
         uses: ./.github/actions/test_app
+        with:
+          filename: testfile.txt
               
       - name: Stop and remove container
         if: always()

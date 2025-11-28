@@ -1,8 +1,14 @@
 name: "Test Django Application"
 description: "Action to test Django application running in Docker container"
+inputs:
+  filename:
+    description: "The name of the file to be used in the test"
+    required: true
 runs:
   using: "composite"
   steps:
     - name: Test health endpoint
-      run: curl -f http://localhost:8000/health/ || exit 1
+      run: |
+      echo "Testing Django application with file: ${{ inputs.filename }}"
+      curl -f http://localhost:8000/health/ || exit 1
       shell: bash
