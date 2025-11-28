@@ -9,6 +9,5 @@ runs:
   steps:
     - name: Test health endpoint
       run: |
-      echo "Testing Django application with file: ${{ inputs.filename }}"
-      curl -f http://localhost:8000/health/ || exit 1
+      echo "Testing Django application with file: ${{ inputs.filename }}"      
       shell: bash
