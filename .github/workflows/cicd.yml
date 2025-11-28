@@ -38,9 +38,12 @@ jobs:
         run: sleep 5
 
       - name: Test Django application
+        id: test_django_app
         uses: ./.github/actions/test_app
         with:
           filename: testfile.txt
+      - name: Display test filename
+        run: echo "testfilename is ${{ steps.test_django_app.outputs.testfilename }}"
               
       - name: Stop and remove container
         if: always()

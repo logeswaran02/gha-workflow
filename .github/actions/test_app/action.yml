@@ -4,9 +4,17 @@ inputs:
   filename:
     description: "The name of the file to be used in the test"
     required: true
+outputs:
+  testfilename:
+    description: "The name of the file used in the test"
+    value: ${{ steps.testing_app.outputs.testfilename }}
+
 runs:
   using: "composite"
   steps:
     - name: Test health endpoint
-      run: echo "${{ inputs.filename }}" && curl -f http://localhost:8000/health/ || exit 1
+    id: testing_app
+      run: |
+      echo "${{ inputs.filename }}" && curl -f http://localhost:8000/health/ || exit 1
+      echo "testfilename=${{ inputs.filename}}" >>${GITHUB_OUTPUT}
       shell: bash
