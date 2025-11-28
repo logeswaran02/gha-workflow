@@ -8,5 +8,5 @@ runs:
   using: "composite"
   steps:
     - name: Test health endpoint
-      run: echo "Testing Django application with file: ${{ inputs.filename }}"
+      run: echo "Hello!"
       shell: bash
