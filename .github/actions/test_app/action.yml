@@ -8,5 +8,5 @@ runs:
   using: "composite"
   steps:
     - name: Test health endpoint
-      run: echo "${{ inputs.filename }}"
+      run: echo "${{ inputs.filename }}" && curl -f http://localhost:8000/health/ || exit 1
       shell: bash
