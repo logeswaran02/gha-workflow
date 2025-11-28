@@ -15,6 +15,7 @@ runs:
     - name: Test health endpoint
       id: testing_app
       run: |
-      echo "${{ inputs.filename }}" && curl -f http://localhost:8000/health/ || exit 1
-      echo "testfilename='${{ inputs.filename}}'" >> $GITHUB_OUTPUT
+        echo "${{ inputs.filename }}"
+        curl -f http://localhost:8000/health/ || exit 1
+        echo "testfilename=${{ inputs.filename }}" >> $GITHUB_OUTPUT
       shell: bash
